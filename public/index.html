@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>NodeJS Chat App</title>
-	<meta charset="utf-8">
-</head>
-<body>
-	<p>Welcome to the chat app!</p>
-</body>
+	<html>
+	<head>
+		<title>NodeJS Chat App</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<p>Welcome to the chat app!</p>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		//initializing request after loading socket.io and opening connections
+		var socket = io();	
+
+		// listening on built-in connect e disconnect event
+		socket.on('connect', () => {
+			console.log('Connected to the server');
+		});
+
+		socket.on('disconnect', () => {
+			console.log('Disconnected from the server');
+		});
+	</script>
+	</body>
 </html>
