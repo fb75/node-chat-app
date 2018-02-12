@@ -22,15 +22,23 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
 	console.log('New user connected!');
 
-	// emitting events from the current socket passing payload to the server
-	socket.emit('newMessage', {
-		from: 'servermail@server.com',
-		text: 'Hi there!',
-		createdAt: 123123
-	});
+	// emitting events from the current socket (single connection) passing payload to the server
+	// socket.emit('newMessage', {
+	// 	from: 'servermail@server.com',
+	// 	text: 'Hi there!',
+	// 	createdAt: 123123
+	// });
 
 	socket.on('createMessage', (message) => {
-		console.log('createMessage emitted from the client: ', message);
+
+		// console.log('createMessage emitted from the client: ', message);
+		
+		// emitting event for every single connection, every time a single connection emits createMessage the server will show it to everybody
+		io.emit('newMessage', {
+			from: message.from,
+			text: message.text,
+			createdAt: new Date().getTime()
+		})
 	});
 
 	// listening for client events
