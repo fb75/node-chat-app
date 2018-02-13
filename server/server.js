@@ -1,6 +1,7 @@
 const path = require('path');
 const http = require('http');
 const publicPath = path.join(__dirname, '../public');
+const {generateMessage} = require('./utils/message');
 const express = require('express');
 const port = process.env.PORT || 3000;
 const socketIO = require('socket.io');
@@ -29,28 +30,16 @@ io.on('connection', (socket) => {
 	// 	createdAt: 123123
 	// });
 
-	socket.emit('newMessage', {
-		from: 'admin',
-		text: 'Welcome to the Chat App!',
-		createdAt: new Date().getTime()
-	});
+	socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app!'));
 
-	socket.broadcast.emit('newMessage', {
-		from: 'admin',
-		text: 'New user joined!',
-		createdAt: new Date().getTime()
-	});
+	socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
 
 	socket.on('createMessage', (message) => {
 		
 		// console.log('createMessage emitted from the client: ', message);	
 
 		// emitting event for every single connection, every time a single connection emits createMessage the server will show it to everybody
-		io.emit('newMessage', {
-			from: message.from,
-			text: message.text,
-			createdAt: new Date().getTime()
-		})
+		io.emit('newMessage', generateMessage(message.from, message.text));
 
 		// emitting event to everybody but individual socket, everybody but me can see it.
 		// socket.broadcast.emit('newMessage', {
