@@ -1,0 +1,28 @@
+body, .jumbotron {
+	background: #011627;
+}
+
+.lead {
+	color: #E71D36;
+}
+
+h1, p {
+	color: #FDFFFC;
+}
+
+li {
+	color: #2EC4B6;
+}
+
+button {
+	width:100%;
+	margin: auto;	
+	background: #FF9F1C!important;
+}
+button:hover {
+ background: #FFC16E!important;
+}
+
+input, button {
+	height: 45px;
+}
