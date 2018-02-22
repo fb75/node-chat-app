@@ -4,6 +4,7 @@
 		<title>NodeJS Chat App</title>
 		<meta charset="utf-8">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	</head>
 	<body>		
@@ -15,13 +16,18 @@
 		</div>		
 		<div class="form-group">
 			<form id="message-form">
+				<div class="container">
+					<div class="row">					
+							<button class="btn btn-secondary" id="geo">Send Location</button>					
+					</div>	
+				</div>
 				<div class="container-fluid">
 					<div class="row">
 	   				<div class="col-10">
 							<input type="text" class="form-control" name="message" placeholder="Message"/>  	
 	    			</div>
 	    			<div class="col-2">      
-							<button class="btn btn-primary">></button>			  			  				
+							<button id="send" class="btn btn-primary">Send</button>			  			  				
 	   			  </div>
 	  			</div>
   			</div>
@@ -29,8 +35,9 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col align-self-center">
-					<ol id="messages"></ol>        		
+				<div class="col-sm-12">
+					<ul id="messages" class="list-group"></ul>
+					<!-- <ol id="messages"></ol>        		 -->
     		</div>
 			</div>
 		</div>

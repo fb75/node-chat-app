@@ -17,7 +17,7 @@ socket.on('disconnect', function () {
 
 socket.on('newMessage', function(message) {
 	console.log('New message', message);
-	var li = jQuery('<li></li>');
+	var li = jQuery('<li class="list-group-item list-group-item-primary"></li>');
 	li.text(`${message.from}: ${message.text}`);
 
 	jQuery('#messages').append(li);
