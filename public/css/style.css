@@ -14,20 +14,33 @@ h1 {
 	color: #FDFFFC;
 }
 
-ol {	
+ul {	
 	width: 100%;
-	height: 60px;		
+	height: 60px;			
+	position: absolute!important;
+	z-index: 1030!important;
+	margin-bottom: 59px!important;
 }
 
-li {
+li {		
+	display: block;		
 	width: 100%;
-	background: #FDFFFC;
+	background: #FDFFFC;	
 }
 
+nav {
+	position: fixed!important;	
+	hight:auto!important;
+	padding-top: 8px!important;	
+	margin-bottom: 0px!important;	
+	margin-top: 15px!important;	
+	z-index: 1031!important;
+	background-color: rgba(1,22,39,.9);
+}
 button {
 	color: #E71D36!important;
 	background: #FF9F1C!important;
-	height: 65px;
+	height: 50px;
 }
 button:hover {
  background: #FFC16E!important;
@@ -41,17 +54,38 @@ button#send {
 	width: 65px;
 	height: 65px;
 	border-radius: 50px;	
+	border-style: none;
 }
 
 input {
 	width: 100%!important;
 	height: 65px;
-	padding-top: 2%!important;
-	padding-bottom: 2%!important;
+	border-radius: 50px!important;
+	/*padding-top: 2%!important;
+	padding-bottom: 2%!important;*/
+}
+
+.fixed {
+	margin-bottom: 10px!important;
+	padding-bottom: 65px!important;
+	z-index: 1099!important;
 }
 
 @media (max-width: 576px) {
+	input {
+		width: 110%!important;
+		height: 50px!important;		
+		margin-left: -15px!important;
+	}
 	button#send {
-		margin-left: -25px!important;
+		width: 50px!important;
+		height: 50px!important;	
+		margin-left: -5px!important;
+		font-size: 12px!important;
+		font-style: bold!important;
+		margin-right: : auto!important;
+	}
+	.fixed {
+		padding-bottom: 59.5px!important;
 	}
 }

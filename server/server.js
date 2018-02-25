@@ -1,7 +1,7 @@
 const path = require('path');
 const http = require('http');
 const publicPath = path.join(__dirname, '../public');
-const {generateMessage} = require('./utils/message');
+const {generateMessage, generateLocationMessage} = require('./utils/message');
 const express = require('express');
 const port = process.env.PORT || 3000;
 const socketIO = require('socket.io');
@@ -35,13 +35,10 @@ io.on('connection', (socket) => {
 	socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
 
 	// listening to client emitted event, callback is invoked for acknowlegement about the data sent
-	socket.on('createMessage', (message, callback) => {
-		
+	socket.on('createMessage', (message, callback) => {		
 		console.log('createMessage: ', message);	
-
 		// emitting event for every single connection, every time a single connection emits createMessage the server will show it to everybody
-		io.emit('newMessage', generateMessage(message.from, message.text));
-		// acknole
+		io.emit('newMessage', generateMessage(message.from, message.text));		
 		callback('This is from the server.');
 
 		// emitting event to everybody but individual socket, everybody but me can see it.
@@ -52,7 +49,9 @@ io.on('connection', (socket) => {
 		// });
 	});
 
-
+	socket.on('createLocationMessage', (coords) => {
+		io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
+	});
 
 	// listening for client events
 	socket.on('disconnect', () => {
