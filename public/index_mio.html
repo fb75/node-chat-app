@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>NodeJS Chat App</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	</head>
+	<body>		
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-4">Welcome to the chat app!</h1>
+		    <p class="lead">This web application uses <a href="https://socket.io/">Socket.io</a> for communication! Made with Node.js by Francesco Brachini</p>
+		  </div>
+		</div>		
+		<div class="form-group">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<ul id="messages" class="list-group"></ul>					
+    			</div>
+				</div>
+			</div>		
+		</div>
+		<nav class="navbar fixed-bottom navbar-light bg-faded">				
+				<input type="text" name="message" placeholder="Message"/> 				
+				<button id="send" class="btn btn-primary">Send</button>
+				
+					<button class="btn btn-secondary" id="geo"><i class="fa fa-globe fa-2x" aria-hidden="true"></i></button>					
+				
+		  </div>
+		</nav>	  
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>	
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/libs/jquery-3.3.1.min.js"></script>
+	<script src="/js/index.js"></script>
+	</body>
+</html>

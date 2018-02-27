@@ -1,1 +1,4 @@
 node_modules/
+public/css/style_mio.css
+public/js/index_mio.js
+server/server_mio.js

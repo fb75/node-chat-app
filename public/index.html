@@ -1,47 +1,35 @@
 <!DOCTYPE html>
-	<html>
-	<head>
-		<title>NodeJS Chat App</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="../../css/style.css">
-	</head>
-	<body>		
-		<div class="jumbotron jumbotron-fluid">
-		  <div class="container">
-		    <h1 class="display-4">Welcome to the chat app!</h1>
-		    <p class="lead">This web application uses <a href="https://socket.io/">Socket.io</a> for communication! Made with Node.js by Francesco Brachini</p>
-		  </div>
-		</div>		
-		<div class="form-group">
-			<form id="message-form">
-				<div class="container">
-					<div class="row">					
-							<button class="btn btn-secondary" id="geo">Send Location  <i class="fa fa-globe fa-2x" aria-hidden="true"></i></button>					
-					</div>	
-				</div>
-					<nav class="navbar fixed-bottom navbar-light bg-faded">
-  						<div class="col-10">
-								<input type="text" class="form-control" name="message" placeholder="Message"/> 	
-	    				</div>
-	    				<div class="col-2">      
-								<button id="send" class="btn btn-primary">Send</button>			  			  				
-	   	 	  	</div>
-					</nav>	   				
-			</form>		
-		</div>
-		<div class="container">
-			<div class="row fixed">
-				<div class="col-sm-12">
-					<ul id="messages" class="list-group"></ul>					
-    		</div>
-			</div>
-		</div>
-	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>	
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="/js/libs/jquery-3.3.1.min.js"></script>
-	<script src="/js/index.js"></script>
-	</body>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="chat">
+  
+  <div class="chat__sidebar">
+    <h3>People</h3>
+    <div id="users"></div>
+  </div>
+
+  <!-- main container for messages and form at the bottom -->
+  <div class="chat__main">
+    <ol id="messages" class="chat__messages"></ol>
+
+    <div class="chat__footer">
+    <form id="message-form">
+      <input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
+      <button>Send</button>
+    </form>
+    <button id="send-location">Send location</button>   
+    </div>   
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/libs/jquery-3.3.1.min.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
 </html>
